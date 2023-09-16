@@ -1,6 +1,6 @@
 """Utilities for handling S-expression lists."""
 
-from ulf2english.util import atom, symbolp, escaped_symbol_p
+from ulf2english.util import atom, symbolp, escaped_symbol_p, replaceall
 
 def balanced_substr(s):
 	"""Find a substring with a balanced number of parentheses."""
@@ -24,6 +24,9 @@ def clean_s_expr(s_expr):
 	s_expr = s_expr.replace('\t', '')
 	while '  ' in s_expr:
 		s_expr = s_expr.replace('  ', ' ')
+	s_expr = replaceall(s_expr,
+						[(r'\| ([a-zA-Z0-9-_]+)\|', r'|\1|', True),
+						 (r'\|([a-zA-Z0-9-_]+) \|', r'|\1|', True)])
 	return s_expr
 
 
