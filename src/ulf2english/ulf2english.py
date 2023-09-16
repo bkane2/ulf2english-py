@@ -843,7 +843,7 @@ ULF2ENGLISH_STAGES = [
   (post_possess2surface, "Handle post-nominal possessive (i.e. 's)"),
   (flatten_ulf, "Flatten ULF into list"),
   (remove_non_surface_tokens, "Only retaining surface symbols"),
-  (process_voc_o, "Process voc-o")
+  (process_voc_o, "Process voc-o"),
   # (stringify_symbols, "Stringify symbols"),
   (strip_suffixes, 'Strip suffixes'),
   (post_format_ulf_string, "Post-format strings"),
