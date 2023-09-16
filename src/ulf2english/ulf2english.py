@@ -338,7 +338,7 @@ def ulf_quote_p(ulf):
 
 def quote2surface(ulf):
   if ulf_quote_p(ulf):
-    return convert(ulf[1], add_punct=False, capitalize_front=False)
+    return '"'+convert(ulf[1], add_punct=False, capitalize_front=False)+'"'
   else:
     return ulf
 
@@ -625,21 +625,21 @@ INSERT_COMMA_RULES = [
    ['1', '2', ',', ['3.1', '3.2'], ',', '4']),
   # coordination
   ('!comma-needing-large-coord-p',
-   ['add-comma-to-coord!', '1']),
+   ['add-comma-to-coord!', '0']),
   ('!comma-needing-small-coord-p',
-   ['add-comma-to-coord!', '1'])
+   ['add-comma-to-coord!', '0'])
 ]
 
 
 QUOTES2SURFACE_RULE = (
   '!ulf-quote-p',
-  ['quote2surface!', '1']
+  ['quote2surface!', '0']
 )
 
 
 POST_POSS2SURFACE_RULE = (
   '!post-poss-p',
-  ['post-poss2surface!', '1']
+  ['post-poss2surface!', '0']
 )
 
 
