@@ -718,7 +718,7 @@ def flatten_ulf(ulf):
   return flatten(ulf)
 
 
-def remove_surface_tokens(lst):
+def remove_non_surface_tokens(lst):
   return [x for x in lst if ulflib.surface_token_p(x)]
 
 
@@ -838,7 +838,7 @@ ULF2ENGLISH_STAGES = [
   (quotes2surface, "Handle quotes"),
   (post_possess2surface, "Handle post-nominal possessive (i.e. 's)"),
   (flatten_ulf, "Flatten ULF into list"),
-  (remove_surface_tokens, "Only retaining surface symbols"),
+  (remove_non_surface_tokens, "Only retaining surface symbols"),
   # (stringify_symbols, "Stringify symbols"),
   (strip_suffixes, 'Strip suffixes'),
   (post_format_ulf_string, "Post-format strings"),
