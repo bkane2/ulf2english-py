@@ -174,7 +174,7 @@ def conjugate_vp_head(vp, subj):
   lex_verb = hv[1] if tense else hv
   conjugated = ''
 
-  if lex_verb is not None:
+  if lex_verb:
     word, suffix = ulflib.split_by_suffix(lex_verb)
 
     conjugated = conjugate_verb_special(word, tense, suffix, lex_verb)
