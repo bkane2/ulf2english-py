@@ -7,6 +7,7 @@ Maps Unscoped Logical Form (ULF) formulas to English sentences. A Python port of
 * [pattern](https://github.com/clips/pattern); If using Python 3, install with `pip install pattern`.
 * [ulflib](https://pypi.org/project/ulflib/)
 * [transduction](https://pypi.org/project/transduction/)
+* [memoization](https://pypi.org/project/memoization/)
 
 ## Summary
 

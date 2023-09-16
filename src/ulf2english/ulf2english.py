@@ -3,6 +3,7 @@
 import re
 from ulflib import ulflib
 from transduction import tt
+from memoization import cached
 
 from ulf2english.util import atom, listp, cons, subst, replaceall, flatten
 import ulf2english.file as file
@@ -414,6 +415,7 @@ def conjugate_infinitive(verb):
 
 ADVERBS = file.load_json('resources/wordnet.adv')
 
+@cached
 def adj2adv(adj):
   """Take an adjective string and return the corresponding adverb string."""
   # Ends in -ly, no change

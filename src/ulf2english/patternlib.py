@@ -3,6 +3,8 @@ from pattern.en import pluralize as pen_pluralize
 from pattern.en import superlative as pen_superlative
 from pattern.en import comparative as pen_comparative
 
+from memoization import cached
+
 ULF2PEN_TENSE_MAPPINGS = {
   'pres' : 'present',
   'past' : 'past',
@@ -38,6 +40,7 @@ CONJUGATE_PARAMS = {
   'parse' : [True, False]
 }
 
+@cached
 def conjugate(verb,
               tense='present',
               person=3,
@@ -61,6 +64,7 @@ def conjugate(verb,
                      parse=parse)
 
 
+@cached
 def pluralize(noun):
   """Take an input noun string and pluralize it.
   
@@ -72,11 +76,13 @@ def pluralize(noun):
   return pen_pluralize(noun)
 
 
+@cached
 def superlative(adj):
   """Take an adjective string and convert it to superlative form."""
   return pen_superlative(adj)
 
 
+@cached
 def comparative(adj):
   """Take an input adjective string and convert it to comparative form."""
   return pen_comparative(adj)
