@@ -390,7 +390,9 @@ PREDS = [
   ulf_quote_p,
   quote2surface,
   post_poss_p,
-  post_poss2surface
+  post_poss2surface,
+  ds_p,
+  ds2surface
 ]
 
 for pred in PREDS:
