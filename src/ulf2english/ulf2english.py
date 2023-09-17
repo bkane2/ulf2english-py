@@ -509,7 +509,7 @@ PARTICIPLE_FOR_IMPLICIT_MOD_X = (
 )
 
 PRES_PART_FOR_KA = (
-  ['ka', '!verb_p'],
+  ['ka', '!verb-p'],
   ['ka', ['vp-to-present-participle!', '2']]
 )  
 
