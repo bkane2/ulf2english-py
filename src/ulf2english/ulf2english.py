@@ -352,12 +352,12 @@ def post_poss2surface(ulf):
 
 
 def ds_p(ulf):
-  return listp(ulf) and len(ulf) >= 3 and ulf[0] == 'ds'
+  return listp(ulf) and len(ulf) == 3 and ulf[0] == 'ds'
 
 
 def ds2surface(ulf):
   if ds_p(ulf):
-    return ' '.join(ulf[2:])[1:-1]
+    return ulf[2][1:-1]
   else:
     return ulf
 
