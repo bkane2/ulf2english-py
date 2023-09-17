@@ -1,3 +1,5 @@
+"""Tests for comma insertions."""
+
 import pytest
 
 from ulf2english import ulf2english
