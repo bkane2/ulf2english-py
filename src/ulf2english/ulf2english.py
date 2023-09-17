@@ -457,8 +457,8 @@ def vp_head_to_v(ulf):
       word, suffix = ulflib.split_by_suffix(ulf)
       return ulflib.add_suffix(word, 'v') if suffix == 'vp-head' else ulf
     else:
-      return rec(ulf)
-  return [rec(x) for x in ulf]
+      return [rec(x) for x in ulf]
+  return rec(ulf)
 
 
 
