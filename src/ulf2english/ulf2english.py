@@ -351,6 +351,17 @@ def post_poss2surface(ulf):
   return "'s"
 
 
+def ds_p(ulf):
+  return listp(ulf) and len(ulf) == 3 and ulf[0] == 'ds'
+
+
+def ds2surface(ulf):
+  if ds_p(ulf):
+    return ulf[2][1:-1]
+  else:
+    return ulf
+
+
 PREDS = [
   unrel_noun,
   prog2be,
@@ -643,6 +654,12 @@ POST_POSS2SURFACE_RULE = (
 )
 
 
+DS2SURFACE_RULE = (
+  '!ds-p',
+  ['ds2surface!', '0']
+)
+
+
 
 # ``````````````````````````````````````
 # Pipeline functions
@@ -712,6 +729,10 @@ def quotes2surface(ulf):
 
 def post_possess2surface(ulf):
   return tt.apply_rule(POST_POSS2SURFACE_RULE, ulf)
+
+
+def ds2surface(ulf):
+  return tt.apply_rule(DS2SURFACE_RULE, ulf)
 
 
 def flatten_ulf(ulf):
@@ -854,6 +875,7 @@ ULF2ENGLISH_STAGES = [
   (add_commas, "Insert commas"),
   (quotes2surface, "Handle quotes"),
   (post_possess2surface, "Handle post-nominal possessive (i.e. 's)"),
+  (ds2surface, "Handle domain-specific ULFs"),
   (flatten_ulf, "Flatten ULF into list"),
   (process_voc_o, "Process voc-o"),
   (join_post_possess, "Join post-posessive (i.e. 's) with previous word"),
