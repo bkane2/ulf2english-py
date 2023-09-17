@@ -865,9 +865,9 @@ ULF2ENGLISH_STAGES = [
   (remove_precomma_spaces, "Merge commas with previous word"),
   (glue, "Glue together"),
   (add_punct, "Add ending punctuation"),
+  (apply_post_processed_equivalencies, "Substitute some equivalent expressions"),
   (capitalize_front, "Capitalize the first word"),
   (capitalize_i, "Capitalize 'i'"),
-  (apply_post_processed_equivalencies, "Substitute some equivalent expressions"),
   (standardize, "Standardize the final string")
 ]
 
