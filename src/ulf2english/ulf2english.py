@@ -726,6 +726,19 @@ def process_voc_o(lst):
   return ['O' if x=='voc-o' else x for x in lst]
 
 
+def join_post_possess(lst):
+  if not lst:
+    return []
+  else:
+    rec = join_post_possess(lst[1:])
+    cur = lst[0]
+    toprec = rec[0] if rec else []
+    if toprec == "'s":
+      return cons(cur+toprec, rec[1:])
+    else:
+      return cons(cur, rec)
+
+
 def strip_suffixes(lst):
   return [ulflib.strip_suffix(x) for x in lst]
 
@@ -843,6 +856,7 @@ ULF2ENGLISH_STAGES = [
   (post_possess2surface, "Handle post-nominal possessive (i.e. 's)"),
   (flatten_ulf, "Flatten ULF into list"),
   (process_voc_o, "Process voc-o"),
+  (join_post_possess, "Join post-posessive (i.e. 's) with previous word"),
   (remove_non_surface_tokens, "Only retaining surface symbols"),
   # (stringify_symbols, "Stringify symbols"),
   (strip_suffixes, 'Strip suffixes'),
